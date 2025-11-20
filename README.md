@@ -118,3 +118,7 @@ Este projeto foi desenvolvido originalmente como parte da disciplina de Programa
     Gabriela Marques
 
 <p align="center"> Desenvolvido com 💙 por Luiz Henrique </p>
+
+Método,Rota,Descrição
+POST,/auth/registro,Criar nova conta de usuário
+POST,/auth/login,Autenticar e receber Token JWT
