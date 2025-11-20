@@ -1,46 +1,65 @@
 # 🏥 FarmaHub API
 
-> Trabalho da disciplina de Programação Web (3º Semestre).
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-A **FarmaHub API** é o back-end de um sistema de Marketplace de Farmácias. O projeto gerencia o fluxo de vendas entre **Farmacêuticos** (que cadastram produtos e cupons) e **Compradores** (que montam carrinhos e fazem pedidos).
+> **API RESTful** para gerenciamento de Marketplace Farmacêutico, focada em controle de estoque, fluxo de vendas e segurança.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 💻 Sobre o Projeto
 
-O projeto foi construído com as principais ferramentas do mercado atual:
+A **FarmaHub API** é o back-end robusto de um sistema de e-commerce voltado para farmácias. O projeto foi desenvolvido com foco em **Clean Code** e arquitetura escalável, gerenciando o fluxo completo entre **Farmacêuticos** (Administradores) e **Compradores**.
 
-- **Node.js & TypeScript**: Base do projeto.
-- **Express**: Framework de servidor.
-- **TypeORM & SQLite**: Banco de dados e ORM.
-- **Zod**: Validação de dados (Schemas).
-- **JWT (Passport)**: Segurança e Autenticação.
-- **Bcrypt**: Criptografia de senhas.
+O sistema implementa regras de negócio complexas, como validação de estoques em tempo real, aplicação de cupons de desconto com verificação de validade e controle de acesso baseado em cargos (RBAC).
+
+---
+
+## 🚀 Tecnologias e Ferramentas
+
+O projeto utiliza as principais tecnologias do mercado atual:
+
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/) (Superset JavaScript)
+- **Runtime:** [Node.js](https://nodejs.org/)
+- **Framework:** [Express](https://expressjs.com/)
+- **Database & ORM:** [SQLite](https://www.sqlite.org/) com [TypeORM](https://typeorm.io/)
+- **Validação:** [Zod](https://zod.dev/) (Schema Validation)
+- **Segurança:** - [Passport-JWT](https://www.passportjs.org/) (Estratégia de Autenticação)
+  - [Bcrypt](https://www.npmjs.com/package/bcrypt) (Hashing de senhas)
 
 ---
 
 ## ⚙️ Funcionalidades Principais
 
-### 🔐 Perfis de Acesso (Regras de Negócio)
-- **Farmacêutico:** Tem permissão administrativa para criar Produtos e Cupons.
-- **Comprador:** Tem permissão para Favoritar, usar Carrinho e fechar Pedidos.
+### 🔐 Segurança e Acesso (RBAC)
+- **Autenticação JWT:** Login seguro com tokens de sessão.
+- **Farmacêutico:** Permissão total para gestão de produtos e criação de campanhas (cupons).
+- **Comprador:** Acesso exclusivo às funcionalidades de compra, carrinho e favoritos.
 
-### 🛒 Fluxo de Compra
-1. **Autenticação:** Login seguro com Token.
-2. **Produtos:** Listagem e busca.
-3. **Carrinho:** Adicionar e remover itens.
-4. **Cupons:** Validação de código de desconto e data de validade.
-5. **Favoritos:** Lista de desejos do usuário.
+### 📦 Gestão de Estoque
+- CRUD completo de produtos.
+- **Trava de Estoque:** O sistema impede automaticamente a venda de itens sem quantidade suficiente.
+
+### 🛒 Fluxo de Venda
+- **Carrinho Inteligente:** Adição e remoção dinâmica de itens.
+- **Sistema de Cupons:** Validação de códigos promocionais, verificando existência e data de expiração.
+- **Favoritos:** Lista de desejos persistente por usuário.
+- **Pedidos:** Finalização de compra com baixa automática no banco de dados.
 
 ---
 
-## 🛠️ Como Rodar o Projeto
+## 🛠️ Instalação e Execução
 
-Siga os passos abaixo para rodar o servidor na sua máquina:
+Siga os passos abaixo para rodar a API localmente:
+
+### Pré-requisitos
+- Node.js (v18+)
+- Git
+
+### Passo a passo
 
 1. **Clone o projeto ou baixe os arquivos.**
 
-2. **Instale as dependências:**
-   Abra o terminal na pasta do projeto e digite:
-   ```bash
-   npm install
