@@ -63,3 +63,58 @@ Siga os passos abaixo para rodar a API localmente:
 
 1. **Clone o projeto ou baixe os arquivos.**
 
+2. **Instale as dependências:**
+   Abra o terminal na pasta do projeto e digite:
+   ```bash
+   npm install
+
+3. **Rode o servidor**
+   ```bash
+   npm run dev
+
+4. **Pronto! O servidor estará rodando em: http://localhost:3000 O banco de dados database.sqlite será criado automaticamente na primeira execução.**
+
+---
+
+📡 Documentação dos Endpoints
+
+Recomenda-se o uso do Insomnia, Postman ou a extensão REST Client (VS Code) utilizando o arquivo tests/api.http incluído no projeto.
+
+🟢 Autenticação (Público)
+
+Método	Rota	Descrição
+POST	/auth/registro	Criar nova conta de usuário
+POST	/auth/login	Autenticar e receber Token JWT
+
+🔒 Produtos & Cupons (Privado)
+
+Método	Rota	Permissão	Descrição
+GET	/produtos	Todos	Listar catálogo
+POST	/produtos	Farmacêutico	Cadastrar produto
+PUT	/produtos/:id	Farmacêutico	Atualizar dados/preço
+DELETE	/produtos/:id	Farmacêutico	Remover produto
+POST	/cupons	Farmacêutico	Criar cupom de desconto
+
+🛒 Compras (Requer Token)
+
+Método	Rota	Descrição
+POST	/carrinho	Adicionar item ao carrinho
+GET	/carrinho	Visualizar itens atuais
+DELETE	/carrinho/:id	Remover item do carrinho
+POST	/cupons/aplicar	Validar e aplicar desconto
+POST	/pedido	Finalizar compra e baixar estoque
+GET	/favoritos	Listar produtos favoritos
+
+👨‍💻 Autores e Colaboradores
+
+Este projeto foi desenvolvido originalmente como parte da disciplina de Programação Web.
+
+    Luiz Henrique
+
+    Tatiane da Silva
+
+    Maria Adryely
+
+    Gabriela Marques
+
+<p align="center"> Desenvolvido com 💙 por Luiz Henrique </p>
