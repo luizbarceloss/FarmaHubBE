@@ -27,7 +27,8 @@ O projeto utiliza as principais tecnologias do mercado atual:
 - **Framework:** [Express](https://expressjs.com/)
 - **Database & ORM:** [SQLite](https://www.sqlite.org/) com [TypeORM](https://typeorm.io/)
 - **Validação:** [Zod](https://zod.dev/) (Schema Validation)
-- **Segurança:** - [Passport-JWT](https://www.passportjs.org/) (Estratégia de Autenticação)
+- **Segurança:**
+  - [Passport-JWT](https://www.passportjs.org/) (Estratégia de Autenticação)
   - [Bcrypt](https://www.npmjs.com/package/bcrypt) (Hashing de senhas)
 
 ---
@@ -53,13 +54,12 @@ O projeto utiliza as principais tecnologias do mercado atual:
 
 ## 🛠️ Instalação e Execução
 
-Siga os passos abaixo para rodar a API localmente:
-
 ### Pré-requisitos
-- Node.js (v18+)
+Tenha instalado na sua máquina:
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
 - Git
 
-### Passo a passo
+Siga os passos abaixo para rodar o servidor na sua máquina:
 
 1. **Clone o projeto ou baixe os arquivos.**
 
@@ -76,49 +76,38 @@ Siga os passos abaixo para rodar a API localmente:
 
 ---
 
-📡 Documentação dos Endpoints
+## 📡 Documentação dos Endpoints
 
 Recomenda-se o uso do Insomnia, Postman ou a extensão REST Client (VS Code) utilizando o arquivo tests/api.http incluído no projeto.
 
-🟢 Autenticação (Público)
+### 🟢 Autenticação (Público)
+- `POST /auth/registro` - Criar nova conta.
+- `POST /auth/login` - Entrar no sistema.
 
-Método	Rota	Descrição
-POST	/auth/registro	Criar nova conta de usuário
-POST	/auth/login	Autenticar e receber Token JWT
+#### 🔒 Produtos & Cupons (Privado)
+- `GET /produtos` - Listar catálogo *(Todos)*.
+- `POST /produtos` - Cadastrar produto *(Apenas Farmacêutico)*.
+- `PUT /produtos/:id` - Atualizar dados/preço *(Apenas Farmacêutico)*.
+- `DELETE /produtos/:id` - Remover produto *(Apenas Farmacêutico)*.
+- `POST /cupons` - Criar cupom de desconto *(Apenas Farmacêutico)*.
 
-🔒 Produtos & Cupons (Privado)
+#### 🛒 Compras (Requer Token)
+- `POST /carrinho` - Adicionar item ao carrinho.
+- `GET /carrinho` - Visualizar itens atuais.
+- `DELETE /carrinho/:id` - Remover item do carrinho.
+- `POST /cupons/aplicar` - Validar e aplicar desconto.
+- `POST /pedido` - Finalizar compra e baixar estoque.
+- `GET /favoritos` - Listar produtos favoritos.
 
-Método	Rota	Permissão	Descrição
-GET	/produtos	Todos	Listar catálogo
-POST	/produtos	Farmacêutico	Cadastrar produto
-PUT	/produtos/:id	Farmacêutico	Atualizar dados/preço
-DELETE	/produtos/:id	Farmacêutico	Remover produto
-POST	/cupons	Farmacêutico	Criar cupom de desconto
+---
 
-🛒 Compras (Requer Token)
-
-Método	Rota	Descrição
-POST	/carrinho	Adicionar item ao carrinho
-GET	/carrinho	Visualizar itens atuais
-DELETE	/carrinho/:id	Remover item do carrinho
-POST	/cupons/aplicar	Validar e aplicar desconto
-POST	/pedido	Finalizar compra e baixar estoque
-GET	/favoritos	Listar produtos favoritos
-
-👨‍💻 Autores e Colaboradores
+## 👨‍💻 Autores e Colaboradores
 
 Este projeto foi desenvolvido originalmente como parte da disciplina de Programação Web.
 
-    Luiz Henrique
-
-    Tatiane da Silva
-
-    Maria Adryely
-
-    Gabriela Marques
+- **Luiz Henrique**
+- **Tatiane da Silva**
+- **Maria Adryely**
+- **Gabriela Marques**
 
 <p align="center"> Desenvolvido com 💙 por Luiz Henrique </p>
-
-Método,Rota,Descrição
-POST,/auth/registro,Criar nova conta de usuário
-POST,/auth/login,Autenticar e receber Token JWT
